@@ -14,6 +14,7 @@ const IndexPage = () => (
     {/* <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div> */}
+    <p><b>gatsby-plugin-netlify</b> has been installed !!!</p>
     <Link to="/page-2/">Go to page 2</Link>
     <Link to="/info/about/">Go to About page</Link>
   </Layout>

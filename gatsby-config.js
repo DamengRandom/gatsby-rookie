@@ -6,6 +6,7 @@ module.exports = {
     website: `https://www.google.com.au`,
   },
   plugins: [
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
