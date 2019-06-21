@@ -4,7 +4,7 @@ import { Field, Formik, Form } from "formik"
 class SimpleForm extends React.Component {
   constructor(props) {
     super(props)
-
+    console.log("localstroage: ", localStorage)
     this.state = {
       username: localStorage.getItem("username")
         ? localStorage.getItem("username")
@@ -36,11 +36,11 @@ class SimpleForm extends React.Component {
                 onBlur={event => {
                   localStorage.setItem("username", event.target.value)
                 }}
-                defaultvalue={
-                  localStorage.getItem("username") !== "" ||
-                  (localStorage.getItem("username") &&
-                    localStorage.getItem("username"))
-                }
+                // defaultValue={
+                //   localStorage.getItem("username") !== "" ||
+                //   (localStorage.getItem("username") &&
+                //     localStorage.getItem("username"))
+                // }
                 value={this.state.username}
               />
               <label htmlFor="password">Password</label>
