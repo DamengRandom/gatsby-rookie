@@ -28,7 +28,7 @@ class SimpleForm extends React.Component {
       <>
         <Formik
           onSubmit={values => {
-            console.log("submit values", values)
+            console.log("submit values [Issues has been fixed ..]", values)
           }}
         >
           {props => (
