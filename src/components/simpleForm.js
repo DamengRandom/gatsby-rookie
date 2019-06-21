@@ -4,16 +4,22 @@ import { Field, Formik, Form } from "formik"
 class SimpleForm extends React.Component {
   constructor(props) {
     super(props)
-    console.log("localstroage: ", localStorage)
-    this.state = {
-      username:
-        localStorage && localStorage.getItem("username")
-          ? localStorage.getItem("username")
-          : "",
-      password:
-        localStorage && localStorage.getItem("password")
-          ? localStorage.getItem("password")
-          : "",
+    if (typeof window !== "undefined") {
+      this.state = {
+        username:
+          localStorage && localStorage.getItem("username")
+            ? localStorage.getItem("username")
+            : "",
+        password:
+          localStorage && localStorage.getItem("password")
+            ? localStorage.getItem("password")
+            : "",
+      }
+    } else {
+      this.state = {
+        username: "",
+        password: "",
+      }
     }
   }
 
