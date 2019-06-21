@@ -4,18 +4,20 @@ import { Field, Formik, Form } from "formik"
 class SimpleForm extends React.Component {
   constructor(props) {
     super(props)
-    console.log("localstroage: ", localStorage)
+    const windowGlobal = typeof window !== "undefined" && window
+    console.log("localstroage: ", windowGlobal.localStorage)
     this.state = {
-      username: localStorage.getItem("username")
-        ? localStorage.getItem("username")
+      username: windowGlobal.localStorage.getItem("username")
+        ? windowGlobal.localStorage.getItem("username")
         : "",
-      password: localStorage.getItem("password")
-        ? localStorage.getItem("password")
+      password: windowGlobal.localStorage.getItem("password")
+        ? windowGlobal.localStorage.getItem("password")
         : "",
     }
   }
 
   render() {
+    const windowGlobal = typeof window !== "undefined" && window
     return (
       <>
         <Formik
@@ -34,12 +36,15 @@ class SimpleForm extends React.Component {
                   this.setState({ username: event.target.value })
                 }
                 onBlur={event => {
-                  localStorage.setItem("username", event.target.value)
+                  windowGlobal.localStorage.setItem(
+                    "username",
+                    event.target.value
+                  )
                 }}
                 // defaultValue={
-                //   localStorage.getItem("username") !== "" ||
-                //   (localStorage.getItem("username") &&
-                //     localStorage.getItem("username"))
+                //   windowGlobal.localStorage.getItem("username") !== "" ||
+                //   (windowGlobal.localStorage.getItem("username") &&
+                //     windowGlobal.localStorage.getItem("username"))
                 // }
                 value={this.state.username}
               />
@@ -53,7 +58,10 @@ class SimpleForm extends React.Component {
                   this.setState({ password: event.target.value })
                 }}
                 onBlur={event => {
-                  localStorage.setItem("password", event.target.value)
+                  windowGlobal.localStorage.setItem(
+                    "password",
+                    event.target.value
+                  )
                 }}
                 value={this.state.password}
               />
